@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <main class="container">
+        <header class="text-center">
+            <h1 class="display-4 m-2">Meine eigene Blockchain</h1>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-4"> <!-- Bereich1 -->
+                    <div class="card m-2"> <!-- Neue Transaktion -->
+                        <div class="card-body">
+                            <h5 class="card-title">Neue Transaktion</h5>
+                            <form id="txForm" class="row g-3">
+                                <div class="col-md-6"> <!-- Sender -->
+                                    <select id="sender" name="sender" class="form-select">
+                                        <option selected>Absender...</option>
+                                        <option value="Alice">Alice</option>
+                                        <option value="Bob">Bob</option>
+                                        <option value="Charlie">Charlie</option>
+                                    </select>
+                                </div>
+                                <div class="col-6"> <!-- Empfänger -->
+                                    <select id="receiver" name="receiver" class="form-select">
+                                        <option selected>Empfänger...</option>
+                                        <option value="Alice">Alice</option>
+                                        <option value="Bob">Bob</option>
+                                        <option value="Charlie">Charlie</option>
+                                    </select>
+                                </div>
+                                <div class="col-4"> <!-- Betrag -->
+                                    <input type="number" class="form-control" id="amount" name="amount" placeholder="0"
+                                        min="1" step="1">
+                                </div>
+                                <div class="d-grid col-8"> <!-- Button -->
+                                    <button type="submit" class="btn btn-primary">Transaktion senden</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card m-2"> <!-- Mempool -->
+                        <div class="card-body">
+                            <h5 class="card-title">Mempool</h5>
+                            <p id="mempoolPlaceholder" class="text-secondary">Keine Transaktionen…</p>
+                            <ul id="mempoolList" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8"> <!-- Bereich2 -->
+                    <div class="card m-2"> <!-- Mining Nodes -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col"> <!-- Node Alice -->
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input node-switch" type="checkbox" id="nodeAlice">
+                                        <label class="form-check-label" for="nodeAlice">Node: Alice <span id="balAlice" class="badge text-bg-success">…</span></label>
+                                    </div>
+                                </div>
+                                <div class="col"> <!-- Node Bob -->
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input node-switch" type="checkbox" id="nodeBob">
+                                        <label class="form-check-label" for="nodeBob">Node: Bob <span id="balBob" class="badge text-bg-success">…</span></label>
+                                    </div>
+                                </div>
+                                <div class="col"> <!-- Node Charlie -->
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input node-switch" type="checkbox" id="nodeCharlie">
+                                        <label class="form-check-label" for="nodeCharlie">Node: Charlie <span id="balCharlie" class="badge text-bg-success">…</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"> <!-- Details -->
+                        <div class="col-7 m-2"> <!-- Blockchain -->
+                            <ul id="blocksList">…</ul>
+                        </div>
+                        <div class="col m-2"> <!-- Blockinfo -->
+                            <div class="card">
+                                <div id="blockInfo" class="card-body">
+                                    <h5>Blockinfo</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="sha256.js"></script>
+<script src="broadcaster.class.js"></script>
+<script src="block.class.js"></script>
+<script src="blockchain.class.js"></script>
+<script src="mining-node.class.js"></script>
+<script src="script.js"></script>
+</html>
